@@ -9,5 +9,6 @@ module.exports = {
         loaders: [
             { test: /\.js$/, loader: "babel" }
         ]
-    }
+    },
+    devtool: 'source-map'
 };
