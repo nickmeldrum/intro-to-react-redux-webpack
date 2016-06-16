@@ -1,3 +1,6 @@
 'use strict';
 
-console.log('hi');
+import React from 'react';
+
+const someText = <div>world</div>;
+console.log(`hi ${someText}`);
