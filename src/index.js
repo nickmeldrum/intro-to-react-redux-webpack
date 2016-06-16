@@ -1,6 +1,8 @@
 'use strict';
 
 import React from 'react';
+import ReactDOM from 'react-dom';
 
-const someText = <div>world</div>;
-console.log(`hi ${someText}`);
+import Document from './components/document.js';
+
+ReactDOM.render(<Document />, window.document.getElementById('app'));
