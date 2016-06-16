@@ -3,7 +3,6 @@
 module.exports = {
     entry: './src/index.js',
     output: {
-        path: './bin',
-        filename: 'app.bundle.js'
+        filename: './bin/app.bundle.js'
     }
 };
