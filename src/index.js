@@ -2,7 +2,16 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import documentStore from './reducers/document.js';
 
-import Document from './components/document.js';
+import Document from './containers/document.js';
 
-ReactDOM.render(<Document />, window.document.getElementById('app'));
+let store = createStore(documentStore)
+
+ReactDOM.render(
+    <Provider store={store}>
+        <Document />
+    </Provider>
+, window.document.getElementById('app'));
