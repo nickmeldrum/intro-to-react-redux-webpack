@@ -11,13 +11,13 @@ export default React.createClass({
     },
     handleSubmit: function(e) {
         e.preventDefault();
-        this.props.addPart(this.state.name);
+        this.props.update(this.state.name);
         this.setState({name: ''});
     },
     render: function() {
         return (
             <form onSubmit={this.handleSubmit}>
-                <label>add part:</label>
+                <label>{this.props.label}:</label>
                 <input type="text" value={this.state.name} onChange={this.onChange} />
             </form>
         );

@@ -1,8 +1,7 @@
 'use strict';
 
 import React from 'react';
-import AddPart from './add-part.js';
-import RenameDocument from './rename-document.js';
+import GetName from './get-name.js';
 import Parts from './parts.js';
 
 export default React.createClass({
@@ -25,8 +24,8 @@ export default React.createClass({
                 <h1 onClick={this.showRenameDocument} style={{cursor: 'pointer'}}>
                 {this.state.name ? `Document: ${this.state.name}` : 'My document!'}
                 </h1>
-                {this.state.renaming ?  <RenameDocument renameDocument={this.renameDocument} /> : ''}
-                <AddPart addPart={this.addPart} />
+                {this.state.renaming ?  <GetName label="Rename Document" update={this.renameDocument} /> : ''}
+                <GetName label="Add Part" update={this.addPart} />
                 <Parts parts={this.state.parts} />
             </div>
         );
