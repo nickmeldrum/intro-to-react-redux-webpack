@@ -1,22 +1,30 @@
 'use strict';
 
 import React from 'react';
+
 import GetName from './get-name.js';
 import Parts from './parts.js';
+
+import {add} from '../api/part.js';
+import {rename} from '../api/document.js';
 
 export default React.createClass({
     getInitialState: function() {
         return {parts: [], renaming: false, name: ''};
     },
     addPart: function(name) {
-        const newPartsList = this.state.parts.concat([{name, id: this.state.parts.length + 1}]);
-        this.setState({parts: newPartsList});
+        add(name).then(newPart => {
+            const newPartsList = this.state.parts.concat([newPart]);
+            this.setState({parts: newPartsList});
+        });
     },
     showRenameDocument: function() {
         this.setState({renaming: true});
     },
     renameDocument: function(name) {
-        this.setState({name, renaming: false});
+        rename(name).then(document => {
+            this.setState({name: document.name, renaming: false});
+        });
     },
     render: function() {
         return (
