@@ -1,16 +1,24 @@
+'use strict';
+
 import React from 'react';
 
 export default React.createClass({
+    getInitialState: function() {
+        return {name: ''};
+    },
+    onChange: function(e) {
+        this.setState({name: e.target.value});
+    },
     handleSubmit: function(e) {
         e.preventDefault();
-        this.props.addPart(this.refs.name.value);
-        this.refs.name.value = "";
+        this.props.addPart(this.state.name);
+        this.setState({name: ''});
     },
     render: function() {
         return (
             <form onSubmit={this.handleSubmit}>
                 <label>add part:</label>
-                <input type="text" ref="name" />
+                <input type="text" value={this.state.name} onChange={this.onChange} />
             </form>
         );
     }

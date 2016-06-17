@@ -1,3 +1,5 @@
+'use strict';
+
 import React from 'react';
 import AddPart from './add-part.js';
 import Parts from './parts.js';
