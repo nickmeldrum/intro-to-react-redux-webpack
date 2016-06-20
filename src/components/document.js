@@ -25,6 +25,7 @@ export default React.createClass({
                 <h1 onClick={this.showRenameDocument} style={{cursor: 'pointer'}}>
                 {this.props.name ? `Document: ${this.props.name}` : 'My document!'}
                 </h1>
+                {this.props.renaming ? 'Renaming doc...' : ''}
                 {this.state.renaming ?  <GetName label="Rename Document" update={this.renameDocument} /> : ''}
 
                 <GetName label="Add Part" update={this.addPart} />

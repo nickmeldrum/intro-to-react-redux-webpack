@@ -7,6 +7,7 @@ import { addPart } from '../actions/part.js';
 function mapStateToProps(state) {
     return {
         name: state.document.name,
+        renaming: state.document.renaming,
         parts: state.parts
     };
 }
