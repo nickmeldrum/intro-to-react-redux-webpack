@@ -3,12 +3,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { createStore, compose } from 'redux';
-import documentStore from './reducers/document.js';
+import { createStore, compose, combineReducers } from 'redux';
+import document from './reducers/document.js';
+import parts from './reducers/parts.js';
 
 import Document from './containers/document.js';
 
-let store = createStore(documentStore, {parts: []}, compose(
+const app = combineReducers({document, parts});
+
+let store = createStore(app, {parts: []}, compose(
     window.devToolsExtension ? window.devToolsExtension() : f => f
 ))
 
