@@ -7,7 +7,7 @@ import Parts from './parts.js';
 
 export default React.createClass({
     getInitialState: function() {
-        return {parts: [], renaming: false};
+        return {renaming: false};
     },
     addPart: function(name) {
         this.props.addPart(name);
